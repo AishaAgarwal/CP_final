@@ -16,9 +16,12 @@ for subreddit in subreddit_names:
             "created_utc": submission.created_utc,
             "selftext": submission.selftext,
             "ups": submission.ups,
-            "downs": submission.downs
+            "downs": submission.downs,
+            "subreddit": subreddit
         }
+        print(submission_data["author"])
         posts.append(submission_data)
+
 
 df = pd.DataFrame(posts)
 
