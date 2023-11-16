@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Community Detection</title>
+</head>
+<body>
+    <h1>Community Detection</h1>
+
+    <form method="post" action="/">
+        <label for="subreddit_names">Enter subreddit names (comma-separated):</label>
+        <input type="text" name="subreddit_names" id="subreddit_names" required>
+        <button type="submit">Submit</button>
+    </form>
+
+    {% if graph %}
+    <img src="data:image/png;base64,{{ graph }}" alt="Community Graph" usemap="#nodeMap">
+    
+{% endif %}
+    {% if communities %}
+        <h2>Detected Communities:</h2>
+        <ul>
+            {% for community in communities %}
+                <li>{{ community }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+</body>
+</html>

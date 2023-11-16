@@ -25,4 +25,8 @@ for subreddit in subreddit_names:
 
 df = pd.DataFrame(posts)
 
+
+
+
 df.to_csv('reddit_posts.csv')
+print(df)

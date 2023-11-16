@@ -8,6 +8,10 @@ from preprocess import load_and_preprocess_data
 import matplotlib.pyplot as plt
 from matplotlib.gridspec import GridSpec
 
+def load_model():
+    clf = joblib.load('community_detection_model.pkl')
+    return clf
+
 def train_and_save_model(X_train, X_test, y_train, y_test):
     print("Training and saving the model...")
     clf = RandomForestClassifier(n_estimators=100, random_state=42)
@@ -23,7 +27,7 @@ def train_and_save_model(X_train, X_test, y_train, y_test):
 
 def community_detection():
     print("Performing community detection...")
-    df = pd.read_csv('preprocessed_data.csv')
+    df = pd.read_csv('preprocessed_data.csv')  # Load preprocessed data
 
     interaction_graph = nx.Graph()
 
@@ -53,7 +57,7 @@ def community_detection():
 
     print(f"Community {i}: {list(community)}")
 
-    
+
 
 if __name__ == "__main__":
     print("Loading and preprocessing data...")
